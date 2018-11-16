@@ -1,0 +1,29 @@
+/**
+ * @file lex.h
+ * @author François Portet <francois.portet@imag.fr>
+ * @brief Lexem-related stuff.
+ *
+ * Contains lexem types definitions, some low-level syntax error codes,
+ * the lexem structure definition and the associated prototypes.
+ */
+
+#ifndef _LEX_H_
+#define _LEX_H_
+
+
+#include <stdio.h>
+
+//∗ Définition des etats ∗//
+enum {INIT , DECIMAL_ZERO, DEBUT_HEXA, HEXA, LETTRE_MIN, LETTRE_MAJ, DECIMAL, REGISTRE, SYMBOLE, MNEMO, ETIQUETTE, DIRECTIVE, POINT} ;
+
+
+void	lex_read_line( char *, int);
+void	lex_load_file( char *, unsigned int * );
+int     machine_etat( char * text);
+char* 	getNextToken( char** , char* );
+char*   newGetNextToken(char** token, char* current_line);
+
+
+
+#endif /* _LEX_H_ */
+
